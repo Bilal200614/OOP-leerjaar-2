@@ -21,6 +21,6 @@ class Game extends Product {
 
     public function getVerkoopprijs() {
         // Implementeer hier de formule voor verkoopprijs indien nodig
-        return "Bereken hier de verkoopprijs voor game";
+        return $this->inkoopprijs * (1 + $this->btw) + 2.5;
     }
 }

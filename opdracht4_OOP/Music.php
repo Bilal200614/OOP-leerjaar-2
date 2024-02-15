@@ -21,6 +21,6 @@ class Music extends Product {
 
     public function getVerkoopprijs() {
         // Implementeer hier de formule voor verkoopprijs indien nodig
-        return "Bereken hier de verkoopprijs voor muziek";
+        return $this->inkoopprijs * (1 + $this->btw) + 0.5;
     }
 }

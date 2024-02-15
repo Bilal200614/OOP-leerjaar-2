@@ -19,6 +19,6 @@ class Film extends Product {
 
     public function getVerkoopprijs() {
         // Implementeer hier de formule voor verkoopprijs indien nodig
-        return "Bereken hier de verkoopprijs voor film";
+        return $this->inkoopprijs * (1 + $this->btw) + 1.5;
     }
 }
