@@ -1,4 +1,4 @@
-<?php
+<?php 
 abstract class Person {
     private $name;
     private $eyeColor;
@@ -73,10 +73,12 @@ class Nurse extends Staff {
     }
 
     public function calculateSalary($hoursWorked) {
-        $fixedSalary = $this->weeklySalary;
-        $hourlyRate = $this->weeklySalary / 40; // Assuming a 40-hour workweek
-        $bonus = $hoursWorked * $hourlyRate;
-        return $fixedSalary + $bonus;
+        // Hier wordt alleen de bonus van afspraken toegevoegd, het vaste salaris wordt niet berekend
+        return $hoursWorked * $this->getHourlyRate();
+    }
+
+    public function getHourlyRate() {
+        return $this->weeklySalary / 40; // Aannemend dat een werkweek 40 uur is
     }
 
     public function determineRole() {
@@ -100,7 +102,7 @@ class Appointment {
     }
 
     public static function calculateDuration($startTime, $endTime) {
-        // Calculate the duration of the appointment in hours
+        // Bereken de duur van de afspraak in uren
         $duration = $endTime->diff($startTime)->h;
         return $duration;
     }
@@ -108,15 +110,15 @@ class Appointment {
     public function calculateCost() {
         $duration = self::calculateDuration($this->startTime, $this->endTime);
         $doctorSalary = $this->doctor->calculateSalary($duration);
-        $nurseSalary = 0;
+        $nurseBonus = 0;
         if ($this->nurse) {
-            $nurseSalary = $this->nurse->calculateSalary($duration);
+            $nurseBonus = $this->nurse->calculateSalary($duration);
         }
-        return array($doctorSalary, $nurseSalary);
+        return array($doctorSalary, $nurseBonus);
     }
 }
 
-// Testing
+// Testen
 $doctor = new Doctor("Dr. Smith", "Brown", "Black", 180, 75, 50);
 $patient = new Patient("John Doe", "Blue", "Blond", 175, 70);
 $nurse = new Nurse("Nurse Jane", "Green", "Red", 165, 60, 1000);
@@ -128,5 +130,43 @@ $appointment = new Appointment($doctor, $patient, $startTime, $endTime, $nurse);
 $cost = $appointment->calculateCost();
 
 echo "Doctor's salary: $" . $cost[0] . "\n";
-echo "Nurse's salary: $" . $cost[1] . "\n";
+echo "Nurse's bonus: $" . $cost[1] . "\n";
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Details</title>
+</head>
+<body>
+    <h1>Appointment Details</h1>
+
+    <?php
+        // Inclusie van de PHP-bestandscode hieronder
+
+        // Klassen definities...
+    ?>
+
+    <h2>Doctor</h2>
+    <p>Name: <?php echo $doctor->getName(); ?></p>
+    <p>Role: <?php echo $doctor->determineRole(); ?></p>
+
+    <h2>Patient</h2>
+    <p>Name: <?php echo $patient->getName(); ?></p>
+    <p>Role: <?php echo $patient->determineRole(); ?></p>
+
+    <h2>Nurse</h2>
+    <p>Name: <?php echo $nurse->getName(); ?></p>
+    <p>Role: <?php echo $nurse->determineRole(); ?></p>
+
+    <h2>Appointment Cost</h2>
+    <?php
+        // Berekening van de kosten van de afspraak...
+        $cost = $appointment->calculateCost();
+    ?>
+    <p>Doctor's Salary: $<?php echo $cost[0]; ?></p>
+    <p>Nurse's Bonus: $<?php echo $cost[1]; ?></p>
+</body>
+</html>
