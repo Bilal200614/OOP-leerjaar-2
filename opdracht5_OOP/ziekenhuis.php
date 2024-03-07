@@ -130,7 +130,7 @@ $appointment = new Appointment($doctor, $patient, $startTime, $endTime, $nurse);
 $cost = $appointment->calculateCost();
 
 echo "Doctor's salary: $" . $cost[0] . "\n";
-echo "Nurse's bonus: $" . $cost[1] . "\n";
+echo "Nurse's salary: $" . $cost[1] . "\n";
 ?>
 
 <!DOCTYPE html>
@@ -167,6 +167,6 @@ echo "Nurse's bonus: $" . $cost[1] . "\n";
         $cost = $appointment->calculateCost();
     ?>
     <p>Doctor's Salary: $<?php echo $cost[0]; ?></p>
-    <p>Nurse's Bonus: $<?php echo $cost[1]; ?></p>
+    <p>Nurse's Salary: $<?php echo $cost[1]; ?></p>
 </body>
 </html>
