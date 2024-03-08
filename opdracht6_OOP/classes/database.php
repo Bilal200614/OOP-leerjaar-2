@@ -1,6 +1,6 @@
 <?php
     // Functie: classdefinitie User 
-    // Auteur: Yassine
+    // Auteur: Wigmans
     require_once 'classes/Database.php';
 
     class User{
@@ -12,6 +12,11 @@
         public $role;
         private static $db;
         
+
+
+
+
+
         public function __construct() {
             self::$db = new Database("localhost", "login", "root", "");
         }
@@ -23,8 +28,6 @@
             return $this->password;
         }
 
-
-        
         public function ShowUser() {
             echo "<br>Username: $this->username<br>";
             echo "<br>Password: $this->password<br>";
@@ -53,6 +56,10 @@
                     $status = true;
                 }
                             
+                
+
+
+
                 
             }
             return $errors;
