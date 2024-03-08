@@ -18,13 +18,13 @@
 		if(count($errors)== 0){
 			//Inlogen
 			if ($user->LoginUser()){
-				echo "LOgin ok";
+				echo "Login ok";
 				// Ga naar pagina??
 				header("location: index.php");
 			} else
 			{
 				array_push($errors, "Login mislukt");
-				echo "LOgin NOT ok";
+				echo "Login NOT ok";
 			}
 		}
 

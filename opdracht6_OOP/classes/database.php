@@ -1,7 +1,7 @@
 <?php
     // Functie: classdefinitie User 
     // Auteur: Wigmans
-    require_once 'classes/Database.php';
+    require_once 'classes/user.php';
 
     class User{
 
@@ -137,8 +137,8 @@
                 //Indien gevonden eigenschappen vullen met waarden uit de SELECT
                 $this->username = $result->fetch(PDO::FETCH_ASSOC)["username"];
             } else {
-                Logout();
-            }   
+                $this->Logout();
+            }
         }
 
         public function Logout() {

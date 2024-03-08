@@ -1,6 +1,6 @@
 <?php
     // Functie: programma login OOP 
-    // Auteur: Yassine
+    // Auteur: Yassine Azdad
 
     // Initialisatie
 ?>
