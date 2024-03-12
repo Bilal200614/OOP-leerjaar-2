@@ -1,7 +1,8 @@
 <?php
     // Functie: classdefinitie User 
     // Auteur: Yassine
-    require_once 'classes/Database.php';
+    namespace opdrachtenoopleerjaar2\classes;
+    use opdrachtenoopleerjaar2\classes\Database;
 
     class User{
 

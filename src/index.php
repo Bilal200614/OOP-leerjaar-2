@@ -18,7 +18,9 @@
 	<br />
 	<?php
 
-    require_once 'classes/user.php';
+    require "..vendor\autoload.php";
+
+	use opdrachtenoopleerjaar2\classes;
 
     $user = new User();
 
