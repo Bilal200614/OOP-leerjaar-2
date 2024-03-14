@@ -1,4 +1,4 @@
-<?php 
+<?php
 abstract class Person {
     private $name;
     private $eyeColor;
@@ -86,6 +86,40 @@ class Nurse extends Staff {
     }
 }
 
+class Receptionist extends Staff {
+    private $monthlySalary;
+
+    public function __construct($name, $eyeColor, $hairColor, $height, $weight, $monthlySalary) {
+        parent::__construct($name, $eyeColor, $hairColor, $height, $weight);
+        $this->monthlySalary = $monthlySalary;
+    }
+
+    public function calculateSalary($hoursWorked) {
+        return $this->monthlySalary;
+    }
+
+    public function determineRole() {
+        return "Receptionist";
+    }
+}
+
+class Surgeon extends Doctor {
+    private $operationFee;
+
+    public function __construct($name, $eyeColor, $hairColor, $height, $weight, $hourlyRate, $operationFee) {
+        parent::__construct($name, $eyeColor, $hairColor, $height, $weight, $hourlyRate);
+        $this->operationFee = $operationFee;
+    }
+
+    public function calculateSalary($hoursWorked) {
+        return parent::calculateSalary($hoursWorked) + $this->operationFee;
+    }
+
+    public function determineRole() {
+        return "Surgeon";
+    }
+}
+
 class Appointment {
     private $doctor;
     private $patient;
@@ -122,6 +156,8 @@ class Appointment {
 $doctor = new Doctor("Dr. Smith", "Brown", "Black", 180, 75, 50);
 $patient = new Patient("John Doe", "Blue", "Blond", 175, 70);
 $nurse = new Nurse("Nurse Jane", "Green", "Red", 165, 60, 1000);
+$receptionist = new Receptionist("Receptionist Sarah", "Brown", "Brown", 160, 55, 3000);
+$surgeon = new Surgeon("Dr. Jones", "Blue", "Brown", 175, 70, 60, 2000);
 
 $startTime = new DateTime("2024-03-07 09:00:00");
 $endTime = new DateTime("2024-03-07 11:00:00");
@@ -131,6 +167,7 @@ $cost = $appointment->calculateCost();
 
 echo "Doctor's salary: $" . $cost[0] . "\n";
 echo "Nurse's salary: $" . $cost[1] . "\n";
+
 ?>
 
 <!DOCTYPE html>
@@ -142,12 +179,6 @@ echo "Nurse's salary: $" . $cost[1] . "\n";
 </head>
 <body>
     <h1>Appointment Details</h1>
-
-    <?php
-        // Inclusie van de PHP-bestandscode hieronder
-
-        // Klassen definities...
-    ?>
 
     <h2>Doctor</h2>
     <p>Name: <?php echo $doctor->getName(); ?></p>
@@ -161,12 +192,6 @@ echo "Nurse's salary: $" . $cost[1] . "\n";
     <p>Name: <?php echo $nurse->getName(); ?></p>
     <p>Role: <?php echo $nurse->determineRole(); ?></p>
 
-    <h2>Appointment Cost</h2>
-    <?php
-        // Berekening van de kosten van de afspraak...
-        $cost = $appointment->calculateCost();
-    ?>
-    <p>Doctor's Salary: $<?php echo $cost[0]; ?></p>
-    <p>Nurse's Salary: $<?php echo $cost[1]; ?></p>
-</body>
-</html>
+    <h2>Receptionist</h2>
+    <p>Name: <?php echo $receptionist->getName(); ?></p>
+    <p>Role: <?php echo $receptionist->determineRole(); ?></p
