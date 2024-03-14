@@ -1,13 +1,8 @@
 <?php
     // Functie: programma login OOP 
-    // Auteur: Yassine Azdad
+    // Auteur: Wigmans
 
     // Initialisatie
-	
-		//require_once 'classes/user.php';
-require_once "../vendor/autoload.php";
-use Login\classes\User;
-
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +17,9 @@ use Login\classes\User;
 	<h3>Welcome op de HOME-pagina!</h3>
 	<br />
 	<?php
-
-    require "..vendor\autoload.php";
-
-	use opdrachtenoopleerjaar2\classes;
+//require_once 'classes/user.php';
+require_once "../vendor/autoload.php";
+use Login\classes\User;
 
     $user = new User();
 

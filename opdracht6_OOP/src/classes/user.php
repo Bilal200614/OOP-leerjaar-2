@@ -1,8 +1,10 @@
 <?php
     // Functie: classdefinitie User 
-    // Auteur: Yassine
-    namespace opdrachtenoopleerjaar2\classes;
-    use opdrachtenoopleerjaar2\classes\Database;
+    // Auteur: Wigmans
+    namespace Opdracht6\classes;
+    
+    use Opdracht6\classes\Database;
+    use PDO;
 
     class User{
 
@@ -24,8 +26,6 @@
             return $this->password;
         }
 
-
-        
         public function ShowUser() {
             echo "<br>Username: $this->username<br>";
             echo "<br>Password: $this->password<br>";
@@ -100,7 +100,7 @@
 
             $result = self::$db->executeQuery($query, $params);
             if($result->rowCount() != 0) {
-                if (session_status() !== PHP_SESSION_ACTIVE) {
+                if (session_status() != PHP_SESSION_ACTIVE) {
                     // Start the session
                     session_start();
                 }
@@ -113,7 +113,7 @@
         // Check if the user is already logged in
         public function IsLoggedin() {
             // Check if user session has been set
-            if (session_status() !== PHP_SESSION_ACTIVE) {
+            if (session_status() != PHP_SESSION_ACTIVE) {
                 // Start the session
                 session_start();
             }
@@ -124,19 +124,20 @@
             
 		    // Check user exist
             $query = "SELECT username FROM users WHERE username = ?;";
-            $params = array($_SESSION['username']);
+            $params = array($username);
 
             $result = self::$db->executeQuery($query, $params);
             if($result->rowCount() != 0) {
                 //Indien gevonden eigenschappen vullen met waarden uit de SELECT
                 $this->username = $result->fetch(PDO::FETCH_ASSOC)["username"];
+                return true;
             } else {
                 Logout();
             }   
         }
 
         public function Logout() {
-            if (session_status() !== PHP_SESSION_ACTIVE) {
+            if (session_status() != PHP_SESSION_ACTIVE) {
                 // Start the session
                 session_start();
             }

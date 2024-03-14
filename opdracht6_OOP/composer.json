@@ -1,5 +1,5 @@
 {
-    "name": "gebruiker/odpracht6a_oop",
+    "name": "gebruiker/Opdracht6",
     "require": {
         "phpunit/phpunit": "^11.0"
     },
@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Gebruiker\\Odpracht6aOop\\": "src/"
+            "Gebruiker\\Login\\": "src/"
         }
     },
     "authors": [
