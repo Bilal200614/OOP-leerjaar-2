@@ -1,7 +1,7 @@
 <?php
-namespace Opdracht7\classes;
+namespace Opdracht7_OOP\classes;
 
-use Opdracht7\classes\Person;
+use Opdracht7_OOP\classes\Person;
 
 class Teacher extends Person
 {
@@ -15,23 +15,23 @@ class Teacher extends Person
         $this->SetRole();
     }
 
+    public function Role() {
+        return $this->role;
+    }
+
     public function SetRole(string $pRole = null)
     {
         parent::SetRole(basename(static::class));
     }
 
-    public function Role() {
-        return $this->role;
-    }
-
-    public function SetSalary(float $pSalary)
-    {
-        $this->salary = $pSalary;
-    }
-
     public function GetSalary()
     {
         return $this->salary;
+    }
+    
+    public function SetSalary(float $pSalary)
+    {
+        $this->salary = $pSalary;
     }
 }
 ?>

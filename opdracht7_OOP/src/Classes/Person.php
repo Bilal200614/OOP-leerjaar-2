@@ -1,5 +1,5 @@
 <?php
-namespace Opdracht7\classes;
+namespace Opdracht7_OOP\classes;
 
 abstract class Person
 {
@@ -7,21 +7,18 @@ abstract class Person
 
     private string $role;
 
-    public function __construct(string $pName)
-    {
-        $this->name = $pName;
-    }
-
     function GetRole(): string
     {
         return $this->role;
     }
-
     function GetName(): string
     {
         return $this->name;
     }
-
+    public function __construct(string $pName)
+    {
+        $this->name = $pName;
+    }
     function SetRole(string $pRole = null)
     {
         if ($pRole !== null) {

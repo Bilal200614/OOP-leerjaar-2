@@ -1,9 +1,9 @@
 <?php
-namespace Opdracht7\classes;
+namespace Opdracht7_OOP\classes;
 
-use Opdracht7\classes\SchooltripList;
-use Opdracht7\classes\Student;
-use Opdracht7\classes\Teacher;
+use Opdracht7_OOP\classes\SchooltripList;
+use Opdracht7_OOP\classes\Student;
+use Opdracht7_OOP\classes\Teacher;
 
 class Schooltrip 
 {
@@ -74,7 +74,7 @@ class Schooltrip
                 $html .= "<td></td>";
                 $html .= "<td>" . $student->GetName() . "</td>";
                 $html .= "<td>" . $student->GetGroup()->GetName() . "</td>";
-                $html .= "<td>" . ($student->GetHasPaid() ? "Ja" : "Nee") . "</td>";
+                $html .= "<td>" . ($student->GetHasPaid() ? "Yes" : "No") . "</td>";
                 $html .= "</tr>";
             }
         }
