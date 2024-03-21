@@ -1,5 +1,5 @@
 {
-    "name": "gebruiker/opdrachten-oo-pleerjaar2",
+    "name": "gebruiker/opdrachten-oop-leerjaar2",
     "autoload": {
         "psr-4": {
             "Gebruiker\\OpdrachtenOoPleerjaar2\\": "src/"
@@ -7,8 +7,8 @@
     },
     "authors": [
         {
-            "name": "Yassine6262",
-            "email": "112876986+Yassine6262@users.noreply.github.com"
+            "name": "Bilal200614",
+            "email": "112876986+Bilal200614@users.noreply.github.com"
         }
     ],
     "require": {}
