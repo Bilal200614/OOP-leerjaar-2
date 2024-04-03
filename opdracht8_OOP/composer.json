@@ -1,0 +1,15 @@
+{
+    "name": "bilal/opdracht8_oop",
+    "autoload": {
+        "psr-4": {
+            "Bilal\\Opdracht8Oop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bilal200614",
+            "email": "9019098@student.zadkine.nl"
+        }
+    ],
+    "require": {}
+}
